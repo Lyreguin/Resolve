@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Resolve</title>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+		
+		<script src="../static/script.js" type="text/javascript"></script>
+	  <script type="text/javascript" src="../static/rich-datepicker.js"></script>
+	  <link rel="stylesheet" type="text/css" href="../static/datapicker.css" />
+	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+
+	  <link rel="stylesheet" type="text/css" href="../static/jquery.timeentry.css"> 
+  	<script type="text/javascript" src="../static/jquery.plugin.js"></script> 
+  	<script type="text/javascript" src="../static/jquery.timeentry.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link href="../static/style.css" rel="stylesheet" type="text/css">
+
+	</head>
+	<body onload="init()" spellcheck="false">
+		<div class="container-fluid">
+			<div class="thenavbar row">
+				<div class="col-sm-6 splashlogo"> <span> Resolve </span> </div>
+				<div class="col-sm-6 navrow">
+					<ul class="navlist">
+						<li id="meNav" onclick="showPane('me')">Me</li>
+						<li id="blogNav" onclick="showPane('blog')">Blog</li>
+						<li id="tasksNav" onclick="showPane('tasks')">Tasks</li>
+						<li id="notesNav" onclick="showPane('notes')">Notes</li>
+						<li id="skillsNav" onclick="showPane('skills')">Skills</li>
+						<li id="logNav" onclick="showPane('log')">Log</li>
+					</ul>
+				</div>
+			</div>
+			<div class="thefakenavbar row">
+				<div class="col-sm-6 splashlogo"> <span> {{ user }}'s Resolve </span> </div>
+				<div class="col-sm-6 navrow">
+					<ul class="navlist">
+						<li id="meNav" onclick="showPane('me')">Me</li>
+						<li id="blogNav" onclick="showPane('blog')">Blog</li>
+						<li id="tasksNav" onclick="showPane('tasks')">Tasks</li>
+						<li id="notesNav" onclick="showPane('notes')">Notes</li>
+						<li id="skillsNav" onclick="showPane('skills')">Skills</li>
+						<li id="logNav" onclick="showPane('log')">Log</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row contentContainer">
+				<div class="content col-xs-12">
+					<div class="tabpane" id="me">
+						<div class="footer row">
+							<div class="signature col-xs-5">
+							</div>
+							<div class="buttonMenu col-xs-7">
+							</div>
+						</div>						
+					</div>
+
+					<div class="tabpane" id="blog">
+						<div class="footer row">
+							<div class="signature col-xs-5">
+							</div>
+							<div class="buttonMenu col-xs-7">
+							</div>
+						</div>
+					</div>
+
+					<div class="tabpane" id="tasks">
+						<div class="searchBar">
+						  <div class="input-group">
+						    <input type="text" class="taskSearch form-control" placeholder="Filter">
+						    <div class="input-group-btn">
+						      <button class="btn btn-default" type="button" onclick="renderTask($('#taskDesc .taskId').val())">
+						        <i class="glyphicon glyphicon-search"></i>
+						      </button>
+						    </div>
+						  </div>
+						</div>
+						<div class="searchSpacer"></div>
+						<div class="breadcrumbs" id="tasksBreadcrumbs">
+						
+						</div>
+
+
+						<div class="mainTask" id="taskDesc">
+			
+						</div>
+			
+						<div class="" id="taskList">
+
+						</div>
+
+						<div class="" id="taskForm">
+						
+						</div>
+						<div class="footer row">
+							<div class="signature col-xs-5">	
+								<span>Michael Venter <br> lyreguin.github.io </span>
+							</div>
+							<div class="buttonMenu col-xs-7">
+								<button class="undoButton" type="button" onclick="undoButton()">
+									<img src="http://icons.veryicon.com/256/System/Icons8%20Metro%20Style/Very%20Basic%20Undo.png" style="padding: 5px;">
+								</button>
+								<button class="addButton" type="button" onclick="renderAddTask(1)">
+									<img src="http://www.freeiconspng.com/uploads/plus-icon-black-2.png">
+								</button>
+								<button class='addMainButton' type='button' onclick="renderAddMainTask()">
+									<img src="http://www.freeiconspng.com/uploads/plus-icon-black-2.png">
+								</button>
+								<button class="editButton" type="button" onclick="renderAddTask(0)">
+									<img src="http://www.freeiconspng.com/uploads/edit-pen-write-icon--2.png" style="padding: 5px">
+								</button>
+								<button class="delButton" type="button" onclick="deleteTask()">
+									<img src="http://findicons.com/files/icons/1580/devine_icons_part_2/128/trash_recyclebin_empty_closed.png" style="padding: 3px 1px;">
+								</button>
+								<button class="submitButton" type="button" onclick="addTask()">
+									<img src="http://wfarm2.dataknet.com/static/resources/icons/set114/389ffedc.png" style="padding: 5px">
+								</button>
+								<button class="cancelButton" type="button" onclick="cancelTask()">
+									<img src="http://www.iconsfind.com/wp-content/uploads/2013/11/20131105_52786680e453e.png">
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="tabpane" id="notes">
+						<div class=" row" id="notePage">
+							<div class="searchBar">
+							  <div class="input-group">
+							    <input type="text" class="noteSearch form-control" placeholder="Filter" onclick="openNotes();">
+							    <div class="input-group-btn">
+							      <button class="btn btn-default" type="button">
+							        <i class="glyphicon glyphicon-search"></i>
+							      </button>
+							    </div>
+							  </div>
+							</div>
+							<div class="searchSpacer"></div>
+							<div class="" id="noteSidebar">
+								
+							</div>
+							<div class="" id="noteContent">
+								
+							</div>
+						</div>
+
+
+						<div class="footer row">
+							<div class="signature col-xs-5">
+								<span>Michael Venter <br> lyreguin.github.io </span>
+							</div>
+							<div class="buttonMenu col-xs-7">
+								<button class="addButton" type="button" onclick="addNote()">
+									<img src="http://www.freeiconspng.com/uploads/plus-icon-black-2.png">
+								</button>
+								<button class="sortButton" type="button" onclick="sortNote(this)" value="0">
+									<img src="https://cdn1.iconfinder.com/data/icons/finance-banking-tiny-icons/16/sort_list-128.png" style="padding: 3px 5px;">
+								</button>
+								<button class="delButton" type="button" onclick="deleteNote()">
+									<img src="http://findicons.com/files/icons/1580/devine_icons_part_2/128/trash_recyclebin_empty_closed.png" style="padding: 3px 1px;">
+								</button>
+								
+							</div>
+						</div>
+					</div>
+
+					<div class="tabpane" id="skills">
+						<div class="breadcrumbs" id="skillsBreadcrumbs">
+						</div>
+						<div class="footer row">
+							<div class="signature col-xs-5">
+							</div>
+							<div class="buttonMenu col-xs-7">
+							</div>
+						</div>
+					</div>
+
+					<div class="tabpane" id="log">
+						<div class="footer row">
+							<div class="signature col-xs-5">
+							</div>
+							<div class="buttonMenu col-xs-7">
+							</div>
+						</div>
+					</div>
+				</div>	
+			
+		</div>
+			
+
+		<!--Templates-->
+
+		<!-- TASKS -->
+		<div class="task row" id="taskTemplate">
+			<div class="taskCont">
+				<div class="taskName"></div>
+				<div class="taskDesc"></div>
+			</div>
+			<div class="taskOptions">
+				<span class="taskTimeDispDate"></span>
+				<div class="taskTimeDispTime"></div>
+				<input class="taskStatus" type="checkbox" onclick="checkTask(this)">
+				<input type="hidden" class="taskTime">
+				<input type="hidden" class="taskId">
+				<input type="hidden" class="parentTaskId">
+			</div>	
+		</div>
+
+		<div class="task subTaskClickable row" id="subTaskTemplate">
+		<hr>
+			<div class="subTask" onclick="openTask(this);">
+				<div class="taskDescDiv">
+					<span class="taskName"></span>
+					<span class="taskDesc"></span>
+				</div>	
+				<div class="taskTimeDiv">
+					<span class="taskTimeDisp"></span>
+				</div>
+				<input type="hidden" class="taskTime" value="">
+				<input type="hidden" class="taskId" value="">
+				<input type="hidden" class="parentTaskId" value="">
+			</div>
+			<div class="subTaskOptions">
+				<input class="taskStatus" type="checkbox" onclick="checkTask(this)">
+				<button class="delButton nonButtonMenu" onclick="deleteSubTask(this)" type="button">
+					<img src="http://findicons.com/files/icons/1580/devine_icons_part_2/128/trash_recyclebin_empty_closed.png" style="padding: 3px 2px; padding-bottom: 4px;">
+				</button>
+			</div>
+		</div>
+
+		<div class="addTaskDisp row" id="addTaskTemplate">
+			<div class="taskForm">
+				<input class="taskName addFocus col-xs-12" type="text" placeholder="New Task">
+				<textarea rows="5" class="taskDesc focusExcept col-xs-12" type="text" placeholder="What up?"></textarea>
+				<input class="taskTime timeInput timepicker focusBlink" type="text" value="1" >	
+				<input class="taskTime dateInput datepicker" type="text">
+				<input type="hidden" class="taskId" value="">
+				<input type="hidden" class="parentTaskId" value="">
+				<input type="hidden" class="taskStaus" value="">
+				<input type="hidden" class="addEdit" value="">
+
+			</div>
+		</div>
+
+		<!-- NOTES -->
+		<div class="note row" id="sideNoteTemplate" onclick="renderNote(this);">
+			<div class="sideNote">
+				<div class="noteDate"></div>
+				<div class="noteTopic"></div>
+				<div class="noteDescSnip"></div>
+				<input type="hidden" class="noteTime" value="">
+				<input type="hidden" class="noteId" value="">
+				<input type="hidden" class="noteDesc" value="">
+			</div>
+			<hr>
+		</div>
+
+		<div class="note row" id="noteTemplate">
+			<input class="noteTopic" type="text" value="" onfocusout="saveNote()" placeholder="Topic">
+			<hr>
+			<textarea class="noteDesc focusExcept" onfocusout="saveNote()" placeholder="Notes"></textarea>
+			<input class="noteId" type="hidden" value="">
+		</div>
+
+	</body>
+</html>
+

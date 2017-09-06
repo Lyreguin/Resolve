@@ -1,0 +1,518 @@
+/* GLOBAL */
+
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
+
+html, body {
+	background: white;
+	font-family: 'Zilla Slab', serif;
+	font-size: 1.1em;
+	height: 100%;
+}
+
+input[type=checkbox] {
+	margin-top: 15px;
+  transform: scale(1.2);
+  display: inline-block;
+  margin-right: 10px;
+}
+
+input[type=checkbox]:hover {
+	cursor: pointer;
+}
+
+.container-fluid {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+}
+
+.row {
+	margin: 0;
+}
+
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li{
+
+	margin: 0;
+	padding: 0;
+}
+
+hr {
+	margin: 0px 5px;
+	color: lightgrey;
+	border-color: lightgrey;
+}
+
+textarea {
+	resize: vertical;
+}
+
+/* NAVBAR */
+
+.thenavbar {
+	width: 100%;
+	background: #6c5384;
+	position: fixed;
+	z-index: 4;
+	color: white;
+}
+
+.thefakenavbar {
+	width: 100%;
+	display: disabled;
+}
+
+.splashlogo {
+	margin-top: 7px;
+	font-size: 1.5em;
+}
+
+.navrow {
+	margin: 0;
+	height: 100%;
+	text-align:	center;
+}
+
+.navlist {
+	padding-top: 3px;
+}
+
+.navlist li {
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	padding-top: 15px;
+	padding-bottom: 3px;
+	text-align: center;
+	height: 100%;
+	width: 15.5%;
+	display: inline-block;
+	background: #6c5384;
+}
+
+.navlist li:hover {
+	cursor: pointer;
+	background: white;
+	color: black;
+	transition: background .2s, color .2s;
+}
+
+.navlist li.selected {
+	background: white;
+}
+
+
+/* CONTENT */
+.contentContainer {
+}
+
+.content {
+	padding: 0px;
+}
+
+.tabpane {
+	display: none;
+	width: 100%;	
+} 
+
+
+.breadcrumbs {
+	margin: 0 10px;
+}
+
+.searchBar {
+	position: fixed;
+	z-index: 4;
+	background: white;
+}
+
+.searchButton {
+
+}
+
+.searchSpacer {
+	height: 35px;
+	width: 100px;
+}
+
+
+/* --TASKS */
+#tasks {
+	height: 100%;
+	margin-bottom: 50px;
+}
+
+#taskDesc {
+	margin: 0;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#taskList {
+	margin: 10px 40px;
+}
+
+#taskPage {
+	display: none;
+}
+
+#taskTemplate {
+	display: none;
+}
+
+.taskOptions {
+	text-align: right;
+}
+
+#subTaskTemplate {
+	display: none;
+}
+
+
+
+#addTaskTemplate {
+	display: none;
+}
+
+.taskForm {
+	margin: 15px;
+	margin-top: 20px;
+}
+
+.taskForm .taskName {
+	border-radius: 15px;
+	border: 1px lightgrey solid;
+	z-index: 3;
+}
+
+.taskForm .taskName:focus {
+	box-shadow: inset 0px 0px 4px #8E24AA;
+	outline: none;
+}
+
+.taskForm .taskDesc {
+	border-radius: 15px;
+	border: 1px lightgrey solid;
+	z-index: 3;
+	margin-top: 10px;
+}
+
+.taskForm .taskDesc:focus {
+	box-shadow: inset 0px 0px 4px #8E24AA;
+	outline: none;
+}
+
+.taskForm .timeInput {
+	border-radius: 15px;
+	border: 1px lightgrey solid;
+	margin-top: 10px;
+	margin-right: 20px;
+	padding-left: 15px;
+	width: 110px;
+}
+
+.taskForm .timeInput:focus {
+	box-shadow: inset 0px 0px 4px #8E24AA;
+	outline: none;
+}
+
+.subTask{
+	padding-left: 10px;
+	padding-right: 10px;
+	width: calc(100% - 70px);
+	display: inline-block;
+	margin-top: 7px;
+}
+
+.taskDescDiv {
+	width: calc(100% - 120px);
+}
+
+
+.subTask .taskTime {
+	text-align: right;
+}
+
+.subTask:hover {
+	cursor: pointer;
+
+}
+
+.subTaskOptions {
+	float: right;
+	text-align: right;
+	display: inline-block;
+}
+
+.subTaskDisp {
+	margin-bottom: 5px;
+	border-radius: 10px;
+}
+
+.taskDescDiv {
+	display: inline-block;
+	float: left;
+}
+
+.taskTimeDiv {
+	display: inline-block;
+	float: right;
+}
+
+.taskCont {
+	margin-left: 20px;
+	width: calc(100% - 170px);
+	display: inline-block;
+}
+
+.taskOptions {
+	margin-right: 20px;
+	width: 100px;
+	float: right;
+	display: inline-block;
+}
+
+.taskCont .taskName {
+	font-size: 1.2em;
+}
+
+.taskCont .taskDesc {
+	
+}
+
+
+.taskCont .taskDesc {
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: .9em;
+}
+
+
+
+
+
+/* --NOTES */
+
+.sideNote {
+	margin: 5px;
+}
+
+.sideNote:hover {
+	cursor: pointer;
+
+}
+
+#notes {
+	height: calc(100vh - 165px);
+}
+
+@media (min-width: 767px) {
+	#notes {
+		height: calc(100vh - 135px);
+	}
+}
+
+#notePage {
+	height: 100%;
+}
+
+#noteSidebar {
+	height: 100%;
+	width: 180px;
+	float: left;
+	border-right: 1px lightgrey solid;
+	overflow: auto;
+}
+
+#noteContent {
+	height: 100%;
+	margin-left: 180px;
+
+}
+
+.noteDate {
+	text-align: right;
+}
+
+#noteTemplate {
+	display: none;
+}
+
+#sideNoteTemplate {
+	display: none;
+}
+
+.sideNote {
+	min-height: 45px;
+}
+
+.sideNote .noteDate {
+	font-size: .8em;
+}
+
+.noteTopic {
+	font-size: .9em;
+}
+
+.noteDescSnip {
+	font-size: .7em;
+	color: slategrey;
+	max-width: 445px;
+	white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+#currNote .noteTopic {
+	width: calc(100% - 25px);
+	display: block;
+	background: white;
+	border: none;
+	margin: 5px 10px;
+	margin-top: 10px;
+	outline: none;
+	padding: 5px;
+	font-size: 1.1em;
+}
+
+#currNote .noteDesc {
+	width: calc(100% - 35px); 
+	height: calc(100vh - 198px);
+	display: block;
+	background: white;
+	border: none;
+	margin: 5px 20px;
+	outline: none;
+	padding: 5px;
+	resize: none;
+	font-size: .9em;
+}
+
+
+ /* FOOTER */
+
+.footer {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin-bottom: 0px;
+	width: 100%;
+	z-index: 4;
+	background: #6c5384;
+	min-height: 45px;
+
+}
+
+.signature {
+	color: white;
+}
+
+.buttonMenu {
+	text-align: right;
+	margin-top: 10px;
+}
+
+.nonButtonMenu {
+	display: inline-block;
+	border-radius: 10px;
+	background: white;
+	padding: 0px;
+	outline-color: #6A1B9A;
+	border: 0px solid black;
+	margin-left: 5px;
+}
+
+.nonButtonMenu:hover {
+	background: #F3E5F5;
+	box-shadow: 0px 0px 3px #CE93D8;
+
+}
+
+.nonButtonMenu img {
+	margin-top: -5px;
+	max-height: 25px;
+	max-width: 25px;
+	height: 25px;
+	width: 25px;
+}
+
+.buttonMenu button {
+	border-radius: 15px;
+	box-shadow: 1px 1px 3px #2c3e50;
+	background: #ecf0f1;
+	padding: 0;
+}
+
+.buttonMenu button img {
+	max-height: 35px;
+	max-width: 35px;
+	height: 35px;
+	width: 35px;
+}
+
+.crumbButton {
+	border: #7B1FA2 1px solid;
+	border-top: 0;
+	margin-top: 5px;
+	margin-bottom: -10px;
+	padding: 2px;
+	padding-top: 10px;
+	padding-left: 10px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	box-shadow: 0px 2px 4px #888888;
+	font-size: .9em;
+}
+.crumbButton:hover {
+	cursor: pointer;
+	background: #F3E5F5;
+}
+
+
+/* BOOTSTRAP AND OTHER SHIT */
+
+.form-control {
+	border-radius: 10px;
+	margin: 5px;
+}
+
+.form-control:focus {
+  border-color: #663399;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 51, 153, 0.6);
+}
+
+.input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
+	margin: 5px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+.rich-datepicker-wrap input {
+	width: 200px;
+	margin-top: 10px;
+}
+
+.rich-datepicker {
+
+}
+
+
+/* MODIFIERS */
+
+.selected {
+	display: block;
+	color: black;
+}
+
+.hide {
+	display: none;
+}
+
+.completed {
+	color: lightgrey;
+}
